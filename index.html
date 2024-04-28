@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles/styles.css">
-
 </head>
 
 <body>
@@ -26,13 +25,14 @@
             </div>
         </div>
         <hr class="w-11/12 mx-auto">
-        <section class="mt-6 mx-10">
+        <section class=" mt-6 mx-10">
             <!-- <div id="news-thumbnail"></div> -->
 
             <!-- fff -->
             <!-- <ul id="news-thumbnail" class="flex justify-around"></ul> -->
             <!-- fff -->
-            <div class="grid xl:grid-cols-8 2xl:grid-cols-8 lg:grid-cols-7 md:grid-cols-5 sm:grid-cols-4 " id="thumbnail"></div>
+            <div class="grid xl:grid-cols-8 2xl:grid-cols-8 lg:grid-cols-7 md:grid-cols-5 sm:grid-cols-4 "
+                id="thumbnail"></div>
 
 
             <!-- <ul class="flex justify-around">
@@ -44,13 +44,31 @@
             </ul> -->
         </section>
         <section class="w-11/12 mx-auto font-medium	 mt-12 bg-slate-100 p-5">
-            <h1><span>0</span> items found for category Entertainment</h1>
+            <h1><span id="news-counts">0</span> items found for category : <span id="category"></span></h1>
         </section>
+
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
     </header>
     <!-- header part ends -->
 
     <!-- main part starts -->
     <main class="container mx-auto">
+        <div id="loading-spinner" class="mt-60 flex justify-center items-center hidden">
+            <span class="loading loading-ring loading-lg"></span>
+        </div>
+        </section>
         <section id="News-cart"></section>
 
     </main>
