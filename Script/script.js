@@ -1,13 +1,13 @@
 const loadNewsCategory = async () => {
     showLoadingSpinner(true);
-    try{
+    try {
         const res = await fetch(`https://openapi.programming-hero.com/api/news/categories`);
         const data = await res.json();
         const newses = data.data.news_category;
         displayNewsCategory(newses);
 
     }
-    catch(error){
+    catch (error) {
         console.log(error);
     }
 }
@@ -46,13 +46,13 @@ const handleShowNewsDetail = async (newsCategoryId, newsCategory) => {
     const showNewsCategory = document.getElementById('category');
     showNewsCategory.innerText = newsCategory;
     // console.log(newsCategoryId);
-    try{
+    try {
         const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${newsCategoryId}`);
         const data = await res.json();
         const wholeNewses = data.data;
         displayNewsCart(wholeNewses);
     }
-    catch(error){
+    catch (error) {
         console.log(error);
     }
 }
@@ -63,6 +63,9 @@ const displayNewsCart = wholeNewses => {
     newsCount.innerText = wholeNewses.length;
     const showNewsCart = document.getElementById('News-cart');
     showNewsCart.innerHTML = ``;
+    wholeNewses.sort((a, b) => {
+        return b.total_view - a.total_view;
+    });
     wholeNewses.forEach(wholeNews => {
         console.log(wholeNews);
         const newsCart = document.createElement('div');
@@ -105,13 +108,13 @@ const showLoadingSpinner = (spinningRing) => {
 
 const getNewsDetails = async (newsDetails) => {
     console.log(newsDetails);
-    try{
+    try {
         const res = await fetch(`https://openapi.programming-hero.com/api/news/${newsDetails}`);
         const data = await res.json();
         const displayNewses = data.data[0];
         displayModalNewsDetails(displayNewses);
     }
-    catch(error){
+    catch (error) {
 
     }
 
