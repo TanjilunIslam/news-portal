@@ -38,14 +38,14 @@ const handleShowNewsDetail = async (newsCategoryId, newsCategory) => {
     const showNewsCategory = document.getElementById('category');
     showNewsCategory.innerText = newsCategory;
     // console.log(newsCategoryId);
-    const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${newsCategoryId}`);
+    const res  = await fetch(`https://openapi.programming-hero.com/api/news/category/${newsCategoryId}`);
     const data = await res.json();
     const wholeNewses = data.data;
     displayNewsCart(wholeNewses);
 }
 
 const displayNewsCart = wholeNewses => {
-    console.log(wholeNewses.length);
+    // console.log(wholeNewses.length);
     const newsCount = document.getElementById('news-counts');
     newsCount.innerText = wholeNewses.length;
     const showNewsCart = document.getElementById('News-cart');
@@ -67,17 +67,18 @@ const displayNewsCart = wholeNewses => {
             <p><span>${wholeNews.total_view}</span>m</p>
             <p>${wholeNews.rating.number}</p>
             <div class="card-actions justify-end">
-              <button onclick="getNewsDetails('${wholeNews._id}')" class="btn btn-outline">Details</button>
-              <button class="btn btn-outline" onclick="my_modal_5.showModal(), getNewsDetails('${wholeNews._id}')">Details#</button>
+            <button class="btn btn-outline" onclick="my_modal_5.showModal(), getNewsDetails('${wholeNews._id}')">Details#</button>
             </div>
-          </div>
-        </div>
-        `;
-        showNewsCart.appendChild(newsCart);
-    })
-    showLoadingSpinner(false);
-}
+            </div>
+            </div>
+            `;
+            showNewsCart.appendChild(newsCart);
+        })
+        showLoadingSpinner(false);
+    }
 
+    // {<button onclick="getNewsDetails('${wholeNews._id}')" class="btn btn-outline">Details</button>}
+    
 const showLoadingSpinner = (spinningRing) =>{
     const spinner = document.getElementById('loading-spinner');
     if(spinningRing){
@@ -89,8 +90,13 @@ const showLoadingSpinner = (spinningRing) =>{
 }
 
 
-const getNewsDetails = (newsDetails) =>{
+const getNewsDetails = async (newsDetails) =>{
     console.log(newsDetails);
+    const res  = await fetch(`https://openapi.programming-hero.com/api/news/${newsDetails}`);
+    const data = await res.json();
+    const displayNewses = data.data[0];
+    console.log(displayNewses);
+    
 }
 
 // const displayNewsCategory = newses => {
