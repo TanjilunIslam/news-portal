@@ -20,7 +20,8 @@
             <div class="flex-none">
                 <ul class="menu menu-horizontal px-1 font-medium">
                     <li class="text-lg underline bg-cyan-600 text-slate-100 rounded-lg"><a>News</a></li>
-                    <li class="text-lg ms-2"><a>Blogs</a></li>
+                    <!-- <li class="text-lg ms-2"><a>Blogs</a></li> -->
+                    <label for="my_modal_6" class="btn text-lg ms-2">Blogs</label>
                 </ul>
             </div>
         </div>
@@ -61,6 +62,19 @@
                 </div>
             </div>
         </dialog>
+
+        <!-- The button to open modal -->
+
+        <input type="checkbox" id="my_modal_6" class="modal-toggle" />
+        <div class="modal" role="dialog">
+            <div class="modal-box">
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">This modal works with a hidden checkbox!</p>
+                <div class="modal-action">
+                    <label for="my_modal_6" class="btn">Close!</label>
+                </div>
+            </div>
+        </div>
     </header>
     <!-- header part ends -->
 
@@ -76,8 +90,8 @@
     <!-- main part ends -->
 
     <!-- footer part starts -->
-    <footer class="text-center py-5 mt-6 bg-zinc-800">
-        Copyright 2021 News Portal
+    <footer class="text-center py-5 mt-6 bg-zinc-800 text-white">
+        Copyright 2024 News Portal
     </footer>
     <!-- footer part ends -->
     <script src="Script/script.js"></script>

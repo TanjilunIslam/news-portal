@@ -68,6 +68,7 @@ const displayNewsCart = wholeNewses => {
     });
     wholeNewses.forEach(wholeNews => {
         console.log(wholeNews);
+        const authorName = wholeNews.author.name || 'not found';
         const newsCart = document.createElement('div');
         newsCart.classList = `mx-auto mt-10 card md:card-side lg:card-side bg-base-100 shadow-xl`;
         newsCart.innerHTML = `
@@ -78,7 +79,7 @@ const displayNewsCart = wholeNewses => {
           <div class="flex justify-around items-center font-medium">
             <div class="flex justify-around items-center w-4/12">
                 <img class="rounded-full w-2/12" src="${wholeNews.author.img}" alt="Album"/>
-                <p class=" ms-3">${wholeNews.author.name}</p>
+                <p class=" ms-3">${authorName}</p>
             </div>
             <p><span>${wholeNews.total_view}</span>m</p>
             <p>${wholeNews.rating.number}</p>
