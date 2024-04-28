@@ -68,8 +68,21 @@
         <input type="checkbox" id="my_modal_6" class="modal-toggle" />
         <div class="modal" role="dialog">
             <div class="modal-box">
-                <h3 class="font-bold text-lg">Hello!</h3>
-                <p class="py-4">This modal works with a hidden checkbox!</p>
+                <h3 class="font-bold text-lg">Difference between var let and const:</h3>
+                <p class="py-4">var declares a variable scoped to the function it's declared in, or globally if declared
+                    outside a function. It can be re-declared and reassigned.
+                </p>
+                <h3 class="font-bold text-lg">Difference between arrow function and a regular function:</h3>
+                <p class="py-4">A regular function is defined with the function keyword and has its own this context. An
+                    arrow function, however, doesn't bind its own this, arguments, super, or new.target - they inherit
+                    them from the containing scope.
+                </p>
+                <h3 class="font-bold text-lg">Difference between map, forEach, filter and find:</h3>
+                <p class="py-4">map transforms each element of an array and returns a new array with the same length.
+                    forEach executes a provided function once for each array element. filter creates a new array with
+                    elements that pass a test defined by a provided function. find returns the first element in an array
+                    that satisfies a provided testing function.
+                </p>
                 <div class="modal-action">
                     <label for="my_modal_6" class="btn">Close!</label>
                 </div>
