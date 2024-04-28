@@ -46,10 +46,15 @@ const handleShowNewsDetail = async (newsCategoryId, newsCategory) => {
     const showNewsCategory = document.getElementById('category');
     showNewsCategory.innerText = newsCategory;
     // console.log(newsCategoryId);
-    const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${newsCategoryId}`);
-    const data = await res.json();
-    const wholeNewses = data.data;
-    displayNewsCart(wholeNewses);
+    try{
+        const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${newsCategoryId}`);
+        const data = await res.json();
+        const wholeNewses = data.data;
+        displayNewsCart(wholeNewses);
+    }
+    catch(error){
+        console.log(error);
+    }
 }
 
 const displayNewsCart = wholeNewses => {
@@ -75,7 +80,7 @@ const displayNewsCart = wholeNewses => {
             <p><span>${wholeNews.total_view}</span>m</p>
             <p>${wholeNews.rating.number}</p>
             <div class="card-actions justify-end">
-            <button class="btn btn-outline" onclick="my_modal_5.showModal(), getNewsDetails('${wholeNews._id}')">Details#</button>
+            <button class="btn btn-outline" onclick="my_modal_5.showModal(), getNewsDetails('${wholeNews._id}')">Details</button>
             </div>
             </div>
             </div>
@@ -100,10 +105,15 @@ const showLoadingSpinner = (spinningRing) => {
 
 const getNewsDetails = async (newsDetails) => {
     console.log(newsDetails);
-    const res = await fetch(`https://openapi.programming-hero.com/api/news/${newsDetails}`);
-    const data = await res.json();
-    const displayNewses = data.data[0];
-    displayModalNewsDetails(displayNewses);
+    try{
+        const res = await fetch(`https://openapi.programming-hero.com/api/news/${newsDetails}`);
+        const data = await res.json();
+        const displayNewses = data.data[0];
+        displayModalNewsDetails(displayNewses);
+    }
+    catch(error){
+
+    }
 
 }
 
@@ -111,14 +121,16 @@ const displayModalNewsDetails = displayNewses => {
     console.log(displayNewses);
     const modalBox = document.getElementById('modal-box');
     modalBox.innerHTML = '';
+    const authorName = displayNewses.author.name || 'not found';
+    console.log(authorName);
     const modalBoxDiv = document.createElement('div');
     modalBoxDiv.innerHTML = `
     <div>
     <div><img class=" mx-auto rounded-full w-24" src="${displayNewses.author.img}" alt=""></div>
     <div class=" mt-3 text-center font-semibold">
-    <p>${displayNewses.author.name}</p>
-    <p>${displayNewses.author.published_date}</p>
-    <p>${displayNewses.title}</p>
+        <p>Name : ${authorName}</p>
+        <p>Date :${displayNewses.author.published_date}</p>
+        <p>Title:${displayNewses.title}</p>
     </div>
     <div class="text-center">
     <p>rating : ${displayNewses.rating.number}</p>
