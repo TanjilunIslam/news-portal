@@ -50,8 +50,9 @@
         <!-- Open the modal using ID.showModal() method -->
         <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
             <div class="modal-box">
-                <h3 class="font-bold text-lg">Hello!</h3>
-                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div id="modal-box"></div>
+                <!-- <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p> -->
                 <div class="modal-action">
                     <form method="dialog">
                         <!-- if there is a button in form, it will close the modal -->
@@ -65,7 +66,7 @@
 
     <!-- main part starts -->
     <main class="container mx-auto">
-        <div id="loading-spinner" class="mt-60 flex justify-center items-center hidden">
+        <div id="loading-spinner" class="mt-60 mb-96 flex justify-center items-center hidden">
             <span class="loading loading-ring loading-lg"></span>
         </div>
         </section>
