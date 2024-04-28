@@ -69,6 +69,7 @@ const displayNewsCart = wholeNewses => {
     wholeNewses.forEach(wholeNews => {
         console.log(wholeNews);
         const authorName = wholeNews.author.name || 'not found';
+        const totalView = wholeNews.total_view || 'not found';
         const newsCart = document.createElement('div');
         newsCart.classList = `mx-auto mt-10 card md:card-side lg:card-side bg-base-100 shadow-xl`;
         newsCart.innerHTML = `
@@ -81,7 +82,7 @@ const displayNewsCart = wholeNewses => {
                 <img class="rounded-full w-2/12" src="${wholeNews.author.img}" alt="Album"/>
                 <p class=" ms-3">${authorName}</p>
             </div>
-            <p><span>${wholeNews.total_view}</span>m</p>
+            <p><span>${totalView}</span>m</p>
             <p>${wholeNews.rating.number}</p>
             <div class="card-actions justify-end">
             <button class="btn btn-outline" onclick="my_modal_5.showModal(), getNewsDetails('${wholeNews._id}')">Details</button>
