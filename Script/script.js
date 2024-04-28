@@ -13,22 +13,6 @@ const loadNewsCategory = async () => {
 }
 
 
-// const displayNewsCategory = newses => {
-//     const newsCategoryContainer = document.getElementById('news-thumbnail');
-//     newses.forEach(news => {
-//         console.log(news);
-//         const newsTitle = document.createElement('li');
-//         // newsTitle.classList.add('categoryNews');
-//         newsTitle.classList = 'categoryNews onClickCss p-3 rounded-full font-semibold';
-//         newsTitle.innerText = `${news.category_name}`;
-//         // newsTitle.classList = `flex justify-around`;
-//         // newsCategoryContainer.innerHTML = `
-//         // <li>${news.category_name}</li>
-//         // `;
-//         newsCategoryContainer.appendChild(newsTitle);
-//     });
-// }
-
 const displayNewsCategory = (newses) => {
     showLoadingSpinner(false);
     const newsCategoryContainer = document.getElementById('thumbnail');
@@ -95,7 +79,6 @@ const displayNewsCart = wholeNewses => {
     showLoadingSpinner(false);
 }
 
-// {<button onclick="getNewsDetails('${wholeNews._id}')" class="btn btn-outline">Details</button>}
 
 const showLoadingSpinner = (spinningRing) => {
     const spinner = document.getElementById('loading-spinner');
@@ -148,29 +131,6 @@ const displayModalNewsDetails = displayNewses => {
     modalBox.appendChild(modalBoxDiv);
 }
 
-// const displayNewsCategory = newses => {
-//     const newsCategoryContainer = document.getElementById('news-thumbnail');
-//     newses.forEach(news => {
-//         console.log(news);
-//         /* fff */
-//         const newsTitle = document.createElement('li');
-//         /* fff */
-//         // newsTitle.classList.add('categoryNews');
-//         /* fff */
-//         newsTitle.classList = 'categoryNews p-3 rounded-full font-semibold';
-//         newsTitle.innerText = `${news.category_name}`;
-//         // /* fff */
-//         // newsTitle.classList = `flex justify-around`;
-//         // newsCategoryContainer.innerHTML = `
-//         // <li>${news.category_name}</li>
-//         // `;
-
-//         // newsCategoryContainer.innerHTML =`<li class="categoryNews p-3 rounded-full font-semibold">${news.category_name}</li>`;
-//         /* fff */
-//         newsCategoryContainer.appendChild(newsTitle);
-//         /* fff */
-//     });
-// }
 
 handleShowNewsDetail('03', 'International News');
 loadNewsCategory();
