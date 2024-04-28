@@ -127,6 +127,7 @@ const displayModalNewsDetails = displayNewses => {
     const modalBox = document.getElementById('modal-box');
     modalBox.innerHTML = '';
     const authorName = displayNewses.author.name || 'not found';
+    const totalView = displayNewses.total_view || 'not found';
     console.log(authorName);
     const modalBoxDiv = document.createElement('div');
     modalBoxDiv.innerHTML = `
@@ -139,7 +140,7 @@ const displayModalNewsDetails = displayNewses => {
     </div>
     <div class="text-center">
     <p>rating : ${displayNewses.rating.number}</p>
-    <p>total view :${displayNewses.total_view}m</p>
+    <p>total view :${totalView}m</p>
     </div>
     </div>
     `;
